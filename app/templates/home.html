@@ -1,9 +1,62 @@
 {% extends "base.html" %}
 
-{% block title %} Home - MeowMail{% endblock %}
+{% block title %}MeowMail{% endblock %}
+
+{% block content%}
 
 
-{% block content %}
+<section class="bg-light-shades py-16">
+    <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12">
+
+        <!-- TEXT SIDE -->
+        <div class="flex-1 text-dark-shades">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                Daily dose of 🐱<span class="text-light-brand"> cuteness</span>
+            </h1>
+            <p class="text-lg text-dark-accent mb-6">
+                Chill with cat photos, explore random cuties, and vibe in lo-fi style.
+            </p>
+
+            <!-- Explore Cats Button -->
+            <a href="#gallery"
+                class="inline-block px-6 py-3 rounded-lg bg-light-brand text-white hover:bg-dark-accent transition mb-8">
+                Explore Cats
+            </a>
+
+            <!-- Email subscription form -->
+            <form class="max-w-md" action="/subscribe" method="POST">
+                <label for="email" class="block mb-2 font-semibold text-dark-shades">
+                    Get daily cat vibes 🐾
+                </label>
+                <div class="flex gap-2">
+                    <input id="email" type="email" name="email" placeholder="Your email address" required class="
+          flex-grow px-4 py-3 border border-[var(--color-light-accent)] rounded-lg
+          bg-[var(--color-light-shades)] text-[var(--color-dark-shades)]
+          placeholder:text-[var(--color-light-accent)]
+          focus:outline-none focus:ring-2 focus:ring-[var(--color-light-brand)] focus:border-[var(--color-light-brand)]
+          transition duration-300 ease-in-out
+        " />
+                    <button type="submit"
+                        class="px-6 py-3 rounded-lg bg-light-brand text-white hover:bg-dark-accent transition">
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- IMAGE SIDE -->
+        <div class="flex-1">
+            <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=720&q=80"
+                alt="Cute cat chilling" class="rounded-2xl shadow-[0_12px_100px_rgba(0,0,0,0.15)]" />
+        </div>
+    </div>
 
 
-{% endblock %}
+
+
+</section>
+
+
+
+
+{% endblock%}
