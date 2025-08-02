@@ -1,0 +1,45 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-100 text-gray-800">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}DailyCats - Get Daily Cat Photos{% endblock %}</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  {% block head_extra %}{% endblock %}
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-purple-600 cursor-pointer">
+        <a href="{{ url_for('routes.index') }}">🐾 DailyCats</a>
+      </h1>
+      <nav class="space-x-4">
+        <a href="{{ url_for('routes.index') }}" class="text-gray-700 hover:text-purple-600">Home</a>
+        <a href="{{ url_for('routes.about')}}" class="text-gray-700 hover:text-purple-600">About</a>
+        <a href="{{ url_for('routes.subscribe')}}" class="text-gray-700 hover:text-purple-600">Subscribe</a>
+        <a href="{{ url_for('routes.contact')}}" class="text-gray-700 hover:text-purple-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    {% block content %}
+    <!-- Default content can go here or stay empty -->
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-6 text-sm text-gray-600 mt-auto">
+    &copy; 2025 DailyCats. All rights reserved. | Made with ❤️ and cat hair.
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
