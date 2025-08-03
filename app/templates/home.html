@@ -3,8 +3,7 @@
 {% block title %}MeowMail{% endblock %}
 
 {% block content %}
-
-<section class="bg-light-shades py-16">
+<section class="bg-light-shades">
 
     <!-- HERO SECTION -->
     <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12 relative">
@@ -36,9 +35,9 @@
                     </label>
                     <div class="flex gap-2">
                         <input id="email" type="email" name="email" placeholder="Your email address" required class="flex-grow px-4 py-3 border border-[var(--color-light-accent)] rounded-lg
-                        bg-[var(--color-light-shades)] text-[var(--color-dark-shades)]
+                        bg-[var(--color-light-shades)] text-[var(--color-light-brand)]
                         placeholder:text-[var(--color-light-accent)]
-                        focus:outline-none focus:ring-2 focus:ring-[var(--color-light-brand)] focus:border-[var(--color-light-brand)]
+                        focus:outline-none focus:ring-2 focus:ring-[var(--color-light-accent)] focus:border-[var(--color-light-accent)]
                         transition duration-300 ease-in-out" />
                         <button type="submit"
                             class="px-6 py-3 rounded-lg bg-light-brand text-white hover:bg-dark-accent transition">
@@ -81,5 +80,6 @@
 
 
 </section>
+
 
 {% endblock %}

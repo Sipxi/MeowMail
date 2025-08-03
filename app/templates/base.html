@@ -6,9 +6,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}" />
   <title>{% block title %}{% endblock %}</title>
 
+  <link rel="preload" href="{{ url_for('static', filename='dist/output.css') }}" as="style">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}">
   {% block head_extra %}{% endblock %}
 </head>
 
@@ -18,39 +19,42 @@
   <header class="bg-light-shades shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative z-50 text-[4rem] font-bold">
     <div class="max-w-[70rem] mx-auto px-4 py-4 flex justify-between items-center">
 
-      <h1 class="font-bold text-dark-shades cursor-pointer font-catfont -ml-[250px]">
-        <a href="{{ url_for('routes.index') }}">🐾 MeowMail</a>
-      </h1>
+      <div class="max-w-[70rem] mx-auto px-4 py-4 grid grid-cols-3 items-center">
+        <h1 class="font-bold text-dark-shades cursor-pointer font-catfont -ml-[250px] col-span-1">
+          <a href="{{ url_for('routes.index') }}">🐾 MeowMail</a>
+        </h1>
 
-      <nav class="flex gap-8 items-center justify-center font-catfont">
-        {% for name, endpoint in [
-        ('Home', 'routes.index'),
-        ('About', 'routes.about'),
-        ('Subscribe', 'routes.subscribe'),
-        ('Contact', 'routes.contact')
-        ] %}
-        <div class="relative inline-block group">
+        <div class="col-span-1"></div> <!-- spacer -->
 
-          <!-- Paw Left -->
-          <img src="{{ url_for('static', filename='img/paw-2.png') }}"
-            class="absolute left-[-20px] w-6 opacity-0 group-hover:animate-paw-pop z-[-1] rotate-[-25deg]"
-            alt="paw-left" />
+        <nav class="flex gap-8 items-center justify-center font-catfont">
+          {% for name, endpoint in [
+          ('Home', 'routes.index'),
+          ('About', 'routes.about'),
+          ('Subscribe', 'routes.subscribe'),
+          ('Contact', 'routes.contact')
+          ] %}
+          <div class="relative inline-block group">
 
-          <!-- Paw Right -->
-          <img src="{{ url_for('static', filename='img/paw-2.png') }}"
-            class="absolute right-[-20px] w-6 opacity-0 group-hover:animate-paw-pop z-[-1] rotate-[25deg]"
-            alt="paw-right" />
+            <!-- Paw Left -->
+            <img src="{{ url_for('static', filename='img/paw-2.png') }}"
+              class="absolute left-[-20px] w-6 opacity-0 group-hover:animate-paw-pop z-[-1] rotate-[-25deg]"
+              alt="paw-left" />
 
-          <!-- Link -->
-          <a href="{{ url_for(endpoint) }}"
-            class="text-dark-shades hover:text-light-brand hover:scale-110 hover:rotate-3 transition-all duration-300">
-            {{ name }}
-          </a>
-        </div>
-        {% endfor %}
-      </nav>
+            <!-- Paw Right -->
+            <img src="{{ url_for('static', filename='img/paw-2.png') }}"
+              class="absolute right-[-20px] w-6 opacity-0 group-hover:animate-paw-pop z-[-1] rotate-[25deg]"
+              alt="paw-right" />
 
-    </div>
+            <!-- Link -->
+            <a href="{{ url_for(endpoint) }}"
+              class="text-dark-shades hover:text-light-brand hover:scale-110 hover:rotate-3 transition-all duration-300">
+              {{ name }}
+            </a>
+          </div>
+          {% endfor %}
+        </nav>
+
+      </div>
   </header>
 
   <!-- Main Content -->

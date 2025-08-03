@@ -40,3 +40,9 @@
   font-display: swap;
   src: url("/static/fonts/font.otf") format("opentype");
 }
+
+@layer base {
+  html {
+    overflow-y: scroll;
+  }
+}

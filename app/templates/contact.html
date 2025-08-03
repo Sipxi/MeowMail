@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section class="min-h-screen bg-light-shades flex items-center justify-center py-16 px-6">
+
+  <div class="max-w-lg w-full bg-light-brand bg-opacity-30 backdrop-blur-md rounded-2xl p-8 shadow-lg">
+
+    <h2 class="text-3xl font-catfont font-bold text-dark-shades mb-6 text-center">
+      Get in Touch 🐾
+    </h2>
+
+    <form action="/contact" method="POST" class="flex flex-col gap-6">
+
+      <label class="flex flex-col text-dark-accent font-semibold">
+        Name
+        <input
+          type="text"
+          name="name"
+          placeholder="Your name"
+          required
+          class="mt-2 px-4 py-3 rounded-lg border border-[var(--color-light-accent)] bg-[var(--color-light-shades)] text-dark-shades placeholder-[var(--color-light-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-light-brand)] focus:border-[var(--color-light-brand)] transition"
+        />
+      </label>
+
+      <label class="flex flex-col text-dark-accent font-semibold">
+        Email
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email address"
+          required
+          class="mt-2 px-4 py-3 rounded-lg border border-[var(--color-light-accent)] bg-[var(--color-light-shades)] text-dark-shades placeholder-[var(--color-light-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-light-brand)] focus:border-[var(--color-light-brand)] transition"
+        />
+      </label>
+
+      <label class="flex flex-col text-dark-accent font-semibold">
+        Message
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Write your message..."
+          required
+          class="mt-2 px-4 py-3 rounded-lg border border-[var(--color-light-accent)] bg-[var(--color-light-shades)] text-dark-shades placeholder-[var(--color-light-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-light-brand)] focus:border-[var(--color-light-brand)] transition resize-none"
+        ></textarea>
+      </label>
+
+      <button
+        type="submit"
+        class="bg-dark-shades text-white font-catfont font-bold py-3 rounded-lg hover:bg-dark-accent transition"
+      >
+        Send Message
+      </button>
+
+    </form>
+  </div>
+
+</section>
+{% endblock %}

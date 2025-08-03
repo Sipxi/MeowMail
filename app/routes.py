@@ -12,12 +12,12 @@ def index():
 
 @routes.route('/about')
 def about():
-    pass
+    return render_template('about.html')
 
 @routes.route('/subscribe')
 def subscribe():
-    pass
+    return render_template('base.html') 
 
 @routes.route('/contact')
 def contact():
-    pass
+    return render_template('contact.html')

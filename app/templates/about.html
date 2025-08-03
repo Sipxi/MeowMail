@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block title %}About{% endblock %}
+
+
+{% block content%}
+
+<section class="bg-light-shades text-dark-shades py-16 px-6 font-catfont">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+
+        <h2 class="text-4xl md:text-5xl font-bold text-light-brand">
+            About MeowMail 🐾
+        </h2>
+
+        <p class="text-lg md:text-xl text-dark-shades">
+            MeowMail is your purr-sonal feline newsletter, where cats rule the inbox. Whether it's adorable pictures,
+            heartwarming stories, or sneaky cat facts — our mission is to deliver pawsitive vibes right to your screen.
+            😸
+        </p>
+
+        <p class="text-md text-dark-shades">
+            Built with love, Tailwind CSS, Python Flask, and way too many cat photos, MeowMail is handcrafted by
+            developers who believe the internet needs more toe beans and fewer bugs. 🐾💻
+        </p>
+
+        <div class="flex justify-center">
+            <img src="{{ url_for('static', filename='img/about-cat.png') }}" alt="About cat image"
+                class="w-48 h-48 object-cover rounded-full shadow-md border-4 border-light-accent" />
+        </div>
+
+    </div>
+</section>
+
+
+
+{% endblock%}
