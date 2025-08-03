@@ -10,4 +10,15 @@
   --color-dark-accent: oklch(0.5959 0.056 57.74);      /* Dark accent  */
   --color-dark-shades: oklch(0.2986 0.0179 18.2); /* Dark shades */
   --color-leather: oklch(0.4731 0.0196 70.26);     /* Leather color */
+  --font-catfont: "catfont", sans-serif; 
 }
+
+@font-face {
+  font-family: "catfont";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/static/fonts/font.otf") format("opentype");
+}
+
+

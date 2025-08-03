@@ -1,28 +1,44 @@
 <!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="{{url_for('static',filename='dist/output.css')}}">
   <title>{% block title %}{% endblock %}</title>
-  
+
 
   {% block head_extra %}{% endblock %}
 </head>
-<body class="flex flex-col min-h-screen bg-light-shades">
+
+<body class="flex flex-col min-h-screen bg-light-shades font-catfont">
 
   <!-- Navbar -->
-  <header class="bg-light-shades shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative z-50">
-    <div class="max-w-[102rem] mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-dark-shades cursor-pointer">
+  <header class="bg-light-shades shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative z-50 text-5xl font-bold">
+    <div class="max-w-[70rem] mx-auto px-4 py-4 flex justify-between items-center">
+
+      <h1 class="font-bold text-dark-shades cursor-pointer font-catfont -ml-[250px]">
         <a href="{{ url_for('routes.index') }}">🐾 DailyCats</a>
       </h1>
-      <nav class="space-x-4">
-        <a href="{{ url_for('routes.index') }}" class="text-dark-shades hover:text-light-brand">Home</a>
-        <a href="{{ url_for('routes.about')}}" class="text-dark-shades hover:text-light-brand">About</a>
-        <a href="{{ url_for('routes.subscribe')}}" class="text-dark-shades hover:text-light-brand">Subscribe</a>
-        <a href="{{ url_for('routes.contact')}}" class="text-dark-shades hover:text-light-brand">Contact</a>
+
+      <nav class="flex flex-row gap-8 item-center justify-center font-catfont">
+
+        <div class="hover:scale-110">
+          <a href="{{ url_for('routes.index') }}" class="text-dark-shades hover:text-light-brand"> Home </a>
+        </div>
+
+        <div class="hover:scale-110">
+          <a href="{{ url_for('routes.about')}}" class="text-dark-shades hover:text-light-brand">About</a>
+        </div>
+
+        <div class="hover:scale-110">
+          <a href="{{ url_for('routes.subscribe')}}" class="text-dark-shades hover:text-light-brand">Subscribe</a>
+        </div>
+        <div class="hover:scale-110">
+          <a href="{{ url_for('routes.contact')}}" class="text-dark-shades hover:text-light-brand">Contact</a>
+        </div>
+
       </nav>
     </div>
   </header>
@@ -36,12 +52,14 @@
 
 
   <!-- Footer -->
-  <footer class="bg-light-shades text-center py-6 text-sm text-dark-shades mt-auto shadow-[0_-6px_12px_rgba(0,0,0,0.05)]">
+  <footer
+    class="bg-light-shades text-center py-6 text-sm text-dark-shades mt-auto shadow-[0_-6px_12px_rgba(0,0,0,0.05)]">
     &copy; 2025 DailyCats. All rights reserved. | Made with ❤️ and cat hair.
   </footer>
 
-  
+
 
   {% block scripts %}{% endblock %}
 </body>
+
 </html>
