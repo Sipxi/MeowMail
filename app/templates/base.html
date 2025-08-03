@@ -1,13 +1,13 @@
 <!-- templates/base.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{{url_for('static',filename='dist/output.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css') }}" />
   <title>{% block title %}{% endblock %}</title>
-
 
   {% block head_extra %}{% endblock %}
 </head>
@@ -15,41 +15,50 @@
 <body class="flex flex-col min-h-screen bg-light-shades font-catfont">
 
   <!-- Navbar -->
-  <header class="bg-light-shades shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative z-50 text-5xl font-bold">
+  <header class="bg-light-shades shadow-[0_4px_12px_rgba(0,0,0,0.05)] relative z-50 text-[4rem] font-bold">
     <div class="max-w-[70rem] mx-auto px-4 py-4 flex justify-between items-center">
 
       <h1 class="font-bold text-dark-shades cursor-pointer font-catfont -ml-[250px]">
-        <a href="{{ url_for('routes.index') }}">🐾 DailyCats</a>
+        <a href="{{ url_for('routes.index') }}">🐾 MeowMail</a>
       </h1>
 
-      <nav class="flex flex-row gap-8 item-center justify-center font-catfont">
+      <nav class="flex gap-8 items-center justify-center font-catfont">
+        {% for name, endpoint in [
+        ('Home', 'routes.index'),
+        ('About', 'routes.about'),
+        ('Subscribe', 'routes.subscribe'),
+        ('Contact', 'routes.contact')
+        ] %}
+        <div class="relative inline-block group">
 
-        <div class="hover:scale-110">
-          <a href="{{ url_for('routes.index') }}" class="text-dark-shades hover:text-light-brand"> Home </a>
-        </div>
+          <!-- Paw Left -->
+          <img src="{{ url_for('static', filename='img/paw-2.png') }}"
+            class="absolute left-[-20px] w-6 opacity-0 group-hover:animate-paw-pop z-[-1] rotate-[-25deg]"
+            alt="paw-left" />
 
-        <div class="hover:scale-110">
-          <a href="{{ url_for('routes.about')}}" class="text-dark-shades hover:text-light-brand">About</a>
-        </div>
+          <!-- Paw Right -->
+          <img src="{{ url_for('static', filename='img/paw-2.png') }}"
+            class="absolute right-[-20px] w-6 opacity-0 group-hover:animate-paw-pop z-[-1] rotate-[25deg]"
+            alt="paw-right" />
 
-        <div class="hover:scale-110">
-          <a href="{{ url_for('routes.subscribe')}}" class="text-dark-shades hover:text-light-brand">Subscribe</a>
+          <!-- Link -->
+          <a href="{{ url_for(endpoint) }}"
+            class="text-dark-shades hover:text-light-brand hover:scale-110 hover:rotate-3 transition-all duration-300">
+            {{ name }}
+          </a>
         </div>
-        <div class="hover:scale-110">
-          <a href="{{ url_for('routes.contact')}}" class="text-dark-shades hover:text-light-brand">Contact</a>
-        </div>
-
+        {% endfor %}
       </nav>
+
     </div>
   </header>
 
   <!-- Main Content -->
   <main class="flex-grow">
     {% block content %}
-    <!-- Default content can go here or stay empty -->
+    <!-- Default content here -->
     {% endblock %}
   </main>
-
 
   <!-- Footer -->
   <footer
@@ -57,9 +66,8 @@
     &copy; 2025 DailyCats. All rights reserved. | Made with ❤️ and cat hair.
   </footer>
 
-
-
   {% block scripts %}{% endblock %}
+
 </body>
 
 </html>

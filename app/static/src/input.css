@@ -4,13 +4,33 @@
 
 
 @theme {
-  --color-light-shades: oklch(0.8792 0.0519 74.68);   /* Light shades */
-  --color-light-accent: oklch(0.6546 0.0622 212.44);   /* Light accent */
-  --color-light-brand: oklch(0.6049 0.0548 58.63);     /* Main brand color */
-  --color-dark-accent: oklch(0.5959 0.056 57.74);      /* Dark accent  */
-  --color-dark-shades: oklch(0.2986 0.0179 18.2); /* Dark shades */
-  --color-leather: oklch(0.4731 0.0196 70.26);     /* Leather color */
-  --font-catfont: "catfont", sans-serif; 
+  --color-light-shades: oklch(0.8792 0.0519 74.68);
+  /* Light shades */
+  --color-light-accent: oklch(0.6546 0.0622 212.44);
+  /* Light accent */
+  --color-light-brand: oklch(0.6049 0.0548 58.63);
+  /* Main brand color */
+  --color-dark-accent: oklch(0.5959 0.056 57.74);
+  /* Dark accent  */
+  --color-dark-shades: oklch(0.2986 0.0179 18.2);
+  /* Dark shades */
+  --color-leather: oklch(0.4731 0.0196 70.26);
+  /* Leather color */
+  --font-catfont: "catfont", sans-serif;
+
+  @keyframes paw-pop {
+    0% {
+      transform: translateY(10px) scale(0.5);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0px) scale(1);
+      opacity: 1;
+    }
+  }
+
+  --animate-paw-pop: paw-pop 0.6s ease-out forwards;
 }
 
 @font-face {
@@ -20,5 +40,3 @@
   font-display: swap;
   src: url("/static/fonts/font.otf") format("opentype");
 }
-
-
